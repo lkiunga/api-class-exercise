@@ -4,7 +4,10 @@
     <meta charset="utf-8">
     <title>Division Only Calculator</title>
     <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Fontawesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
 
     <!-- Adding JS to our page -->
     <!-- Embedded
@@ -26,11 +29,11 @@
   </head>
   <body>
 
-    <div class="">
+    <div class="container">
 
-      <div class="">
-
-        <div class="">
+      <div class="row">
+<!--large ,medium ,small sizes-->
+        <div class="col-md-8-sm-12">
           <br>
           <!-- let us add an alert here -->
           <div class="alert alert-secondary" role="alert">
@@ -40,27 +43,28 @@
           <!-- we need two form inputs -->
           <div class="" id="num1Div">
             <label for="num1">First Number</label>
-            <input type="number" name="num1" id="num1" value="" class="">
-            <span style='display:none;' id="num1Error" class="text-danger"> <i class=" "></i> </span>
+            <input  type="number" name="num1" id="num1" value="" class="form-control">
+            <span style='display:none;' id="num1Error" class="text-danger"> <i class="fas fa-bomb "></i> </span>
           </div>
 
           <div class="">
             <label for="num2">Second Number</label>
-            <input type="number" name="num2" id="num2" value="" class="">
-            <span style='display:none;' id="num2Error" class="text-danger"> <i class=" "></i> </span>
+            <input  type="number" name="num2" id="num2" value="" class="form-control">
+            <span style='display:none;' id="num2Error" class="text-danger"> <i class="fas fa-bomb "></i> </span>
           </div>
 
-          <button id="divide-them" class="" name="divide-them" type="button" name="button">
-           <i class=" "></i>  Divide Them!
+          <button id="divide-them" class="form-control btn btn-primary" name="divide-them" type="button" name="button" onclick="divideThem()">
+           <i class="fas fa-divide "></i>  Divide Them!
           </button>
         </div>
 
-        <div class="">
+        <div class="col-md-4">
+
           <br>
-          <div class="" role="alert">
-           <i class=""></i>  Results
+          <div class="alert alert-success" role="alert">
+           <i class="fas fa-smile"></i>  Results
           </div>
-          <h4 class='' id="results"></h4>
+          <h4 class='text-primary' id="results"></h4>
         </div>
 
       </div>
@@ -69,9 +73,10 @@
 
 
     <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
     <!-- Font awesome -->
 
-
+     <!---->
     <script src="division.js" charset="utf-8"></script>
   </body>
 </html>
