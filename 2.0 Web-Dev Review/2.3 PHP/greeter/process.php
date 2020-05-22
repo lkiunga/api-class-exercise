@@ -1,9 +1,9 @@
 <?php
-#var_dump($_GET); #superglobal(forms) -- update/create
+var_dump($_GET); #superglobal(forms) -- update/create
 
 #stops either
 #die();
-$all_name = $_GET['full-name'];
+$all_name = $_REQUEST['full-name'];
 $age = $_GET['age'];
 $gender = $_GET['gender'];
 

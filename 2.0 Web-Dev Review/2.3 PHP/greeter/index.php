@@ -3,33 +3,27 @@
 
   <head>
     <title>Greeter</title>
+    <style media="screen">
+      .toasty-greeter{
+        width : 35%;
+      }
+      .toastify-avatar{
+        width: 50% !important;
+        height: 50% !important;
+        float:right;
+      }
+
+    </style>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Toastify -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   </head>
 
   <body>
 
-    <?php if( $_GET['greet'] == "yes"): ?>
-
-      <div class="flex mx-auto justify-center">
-        <img class="w-1/4" src="greeter.gif" alt="">
-      </div>
-
-      <div class="flex mx-auto rounded w-1/4 items-center justify-center bg-blue-500 text-white text-lg text-center font-bold px-4 py-3 top-3" role="alert">
-
-        <svg class=" fill-current w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-          <path class="heroicon-ui" d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-3.54-4.46a1 1 0 0 1 1.42-1.42 3 3 0 0 0 4.24 0 1 1 0 0 1 1.42 1.42 5 5 0 0 1-7.08 0zM9 11a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm6 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-        </svg>
-        <p><?php //echo "Hello ".$_GET['msg']; ?></p>
-
-        <p class="text-center"><?="Hello ".$_GET['msg'];?></p>
-
-      </div>
-
-    <?php endif; ?>
-
     <div class="flex">
 
-      <div class="mx-auto py-6">
+      <div class="mx-auto px-4 mx-4 py-6 w-2/3">
         <form action="process.php" method="GET" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <div class="mb-12">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="full-name">
@@ -68,7 +62,48 @@
         </form>
       </div>
 
+      <div class="mx-auto py-6 w-1/3">
+        <table class="text-left w-2/3 border-collapse"> <!--Border collapse doesn't work on this site yet but it's available in newer tailwind versions -->
+         <thead>
+           <tr>
+             <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Name</th>
+             <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Gender</th>
+           </tr>
+         </thead>
+
+          <tbody>
+            <tr class="hover:bg-grey-lighter">
+              <td colspan="2">None</td>
+            </tr>
+          </tbody>
+      </div>
+
     </div>
+    <!-- Toastify JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="text/javascript">
+
+    <?php
+      if( $_GET['greet'] == "yes"):
+     ?>
+        //Toasts
+        Toastify({
+          text: "<?="Hello ".$_GET['msg'];?>",
+          duration: 10000,
+          destination: "#",
+          newWindow: false,
+          close: false,
+          gravity: "top", // `top` or `bottom`
+          position: 'left', // `left`, `center` or `right`
+          backgroundColor: "linear-gradient(90deg, rgba(2,0,36,0) 0%, rgba(9,9,121,1) 6%, rgba(255,255,255,1) 50%)",
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          avatar: 'greeter2.gif',
+          className: 'toasty-greeter',
+          onClick: function(){} // Callback after click
+        }).showToast();
+      <?php endif; ?>
+
+  </script>
   </body>
 
 </html>
