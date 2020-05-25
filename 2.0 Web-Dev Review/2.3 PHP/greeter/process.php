@@ -22,7 +22,10 @@ if ($gender=='f' and $age>30){
   header("Location:index.php?msg=lovely, ${greeting}&greet=yes");
 }elseif($gender=='m' and $age>30){
   header("Location:index.php?msg=mzito, ${greeting}&greet=yes");
-}else if($age >= 20 and $age <= 30){
+}else if($gender=='f' && $age >= 20 and $age <= 30){
+  header("Location:index.php?msg=Beautiful, ${greeting}&greet=yes");
+}
+else if($gender=='m' && $age >= 20 and $age <= 30){
   header("Location:index.php?msg=Yout, ${greeting}&greet=yes");
 }else if($age >= 13 and $age <= 19){
   header("Location:index.php?msg=Teenie, ${greeting}&greet=yes");
