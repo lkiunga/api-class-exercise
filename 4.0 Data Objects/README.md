@@ -8,6 +8,3 @@
 - Connecting to Database using MySQLi
 - CRUD
 - (....)
-
-#### @Credits
-- [Image](https://www.quickstart.com/)
