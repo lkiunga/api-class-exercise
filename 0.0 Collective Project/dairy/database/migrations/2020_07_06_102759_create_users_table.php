@@ -15,16 +15,16 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('userId');
-            $table->string('firstName');
-            $table->string('lastName');
             $table->integer('nationalId')->unique()->nullable();
             $table->integer('empId')->unique()->nullable();
+            $table->string('firstName');
+            $table->string('lastName');
             $table->text('photo');
+            $table->string('gender');
             $table->date('dob');
-            $table->string('nssf');
-            $table->string('nhif');
-            $table->text('password');
-
+            $table->integer('nssf')->nullable();
+            $table->integer('nhif')->nullable();
+            $table->text('password')->nullable();
             $table->unsignedBigInteger('roleId');
             $table->foreign('roleId')->references('roleId')->on('roles');
             $table->timestamps();
