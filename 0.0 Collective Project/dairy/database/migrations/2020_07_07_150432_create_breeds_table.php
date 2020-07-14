@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRolesTable extends Migration
+class CreateBreedsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
-
-            $table->bigIncrements('roleId');
+        Schema::create('breeds', function (Blueprint $table) {
+            $table->bigIncrements('breedId');
             $table->string('name');
-            $table->string('description');
-            $table->boolean('isOrganization')->default(false);
-
+            $table->string('origin');
+            $table->unsignedBigInteger('animalTypeId');
+            $table->foreign('animalTypeId')->references('animalTypeId')->on('animalType');
+            $table->text('photo');
             $table->timestamps();
-
         });
     }
 
@@ -32,6 +31,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('animal_type');
     }
 }
